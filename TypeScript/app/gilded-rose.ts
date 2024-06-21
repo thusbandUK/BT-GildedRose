@@ -23,11 +23,28 @@ export class GildedRose {
     for (let i = 0; i < this.items.length; i++) {
       
 
+      switch(this.items[i].name){
+        case 'Aged Brie':
+          //Aged Brie code
+          break;
+        case 'Backstage passes to a TAFKAL80ETC concert':
+          //backstage passes code
+          break;
+        case 'Sulfuras, Hand of Ragnaros':
+          //sulfuras code
+          break;
+        default:
+          if (this.items[i].quality > 0) {          
+            this.items[i].quality = this.items[i].quality - 1
+          }
+          break;
+
+      }
       //nested if set 1 - reduces quality by 1 of everything but aged brie, backstage passes and sulfuras, provided quality > 0
       if (this.items[i].name != 'Aged Brie' && this.items[i].name != 'Backstage passes to a TAFKAL80ETC concert' && this.items[i].name != 'Sulfuras, Hand of Ragnaros') {
-        if (this.items[i].quality > 0) {          
+        /*if (this.items[i].quality > 0) {          
           this.items[i].quality = this.items[i].quality - 1
-        }
+        }*/
       } else {
         if (this.items[i].quality < 50) {
           //this adds 1 to all the quality increasing products
