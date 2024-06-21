@@ -57,33 +57,19 @@ export class GildedRose {
           //no code required as no changes ever made to Sulfuras
           break;
         default:
-          //Conjured items lose 2 or 4 from quality, depending on sellIn
+          //assigns minimum loss to quality of 1 to variable decreasedValue
+          let decreasedValue = 1;
+          //if sell by date passed, loss to quality is doubled
+          if (this.items[i].sellIn < 0){
+            decreasedValue++;
+          }
+          //If item is conjured, loss to quality is doubled
           if (this.items[i].name.includes('Conjured')){
-            
-            if (this.items[i].quality > 1){
-              this.items[i].quality = this.items[i].quality - 2;
-            } else if (this.items[i].quality === 1){
-              this.items[i].quality = this.items[i].quality - 1;
-            }
-           if (this.items[i].sellIn < 0){
-
-            if (this.items[i].quality > 1){
-              this.items[i].quality = this.items[i].quality - 2;
-            } else if (this.items[i].quality === 1){
-              this.items[i].quality = this.items[i].quality - 1;
-            }
+            decreasedValue = decreasedValue * 2;
           }
-            
-          }
-          //default non-Conjured items lose 1 or 2 from quality, depending on sellIn
-          else {
-            if (this.items[i].quality > 0) {
-              this.items[i].quality = this.items[i].quality - 1;
-            }
-            if (this.items[i].quality > 0 && this.items[i].sellIn < 0) {
-              this.items[i].quality = this.items[i].quality - 1;
-            }
-          }
+          //reduces quality by decreasedValue to a threshold of 0
+          this.items[i].quality = ((this.items[i].quality >= decreasedValue) ? this.items[i].quality - decreasedValue : 0);
+          
           break;
 
       }
