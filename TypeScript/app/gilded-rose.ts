@@ -29,6 +29,20 @@ export class GildedRose {
           break;
         case 'Backstage passes to a TAFKAL80ETC concert':
           //backstage passes code
+          let addedQuality = 0;
+          if (this.items[i].sellIn < 6){
+            addedQuality = 2;
+          } else if (this.items[i].sellIn < 11) {
+            addedQuality = 1;
+          } else {
+            //this (may arguably) be needed only once the section below marked BACKSTAGE HERE, which adds 1 to *all* quality increasing
+            //products, is removed
+            //addedQuality = 1;
+          }
+          this.items[i].quality = this.items[i].quality + addedQuality;
+          if (this.items[i].quality > 50) {
+            this.items[i].quality = 50
+          }
           break;
         case 'Sulfuras, Hand of Ragnaros':
           //sulfuras code
@@ -47,9 +61,10 @@ export class GildedRose {
         }*/
       } else {
         if (this.items[i].quality < 50) {
+          //BACKSTAGE HERE
           //this adds 1 to all the quality increasing products
           this.items[i].quality = this.items[i].quality + 1
-          if (this.items[i].name == 'Backstage passes to a TAFKAL80ETC concert') {
+          /*if (this.items[i].name == 'Backstage passes to a TAFKAL80ETC concert') {
             //this adds one
             if (this.items[i].sellIn < 11) {
               if (this.items[i].quality < 50) {
@@ -64,7 +79,7 @@ export class GildedRose {
               }
               //this.items[i].quality = this.items[i].quality + 1
             }
-          }
+          }*/
         }
       }
       //having assigned the quality this reduces sellin by 1 for everything except sulfuras
