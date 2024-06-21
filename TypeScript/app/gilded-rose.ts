@@ -51,6 +51,9 @@ export class GildedRose {
             this.items[i].quality = 50
           }
           this.items[i].sellIn = this.items[i].sellIn - 1;
+          if (this.items[i].sellIn < 0){
+            this.items[i].quality = 0;
+          }
           break;
         case 'Sulfuras, Hand of Ragnaros':
           //sulfuras code
@@ -73,12 +76,7 @@ export class GildedRose {
                 this.items[i].quality = this.items[i].quality - 1
               }
             }
-          }
-          // this reduces to zero the quality of the backstage passes, once the concert has passed (ie sell by dated passed)
-          else {
-            //this.items[i].quality = this.items[i].quality - this.items[i].quality
-            this.items[i].quality = 0;
-          }
+          }          
         } 
       }
     }
