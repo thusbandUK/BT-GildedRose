@@ -1,3 +1,13 @@
+# Gilded Rose Refactoring Kata 
+# Introduction to solution by T Husband 25-6-24
+
+I modified the TypeScript code, introducing a switch function to separate logic according to the different kinds of products. 
+
+In the default branch of the switch function is a term for "Conjured" items, such that their quality reduces by 2 points per day before sellIn (ie sellIn >= 0) and then reduces by 4 points per day when sellIn < 0. 
+
+Below follows the original README text from the cloned Giled Rose repo.
+
+
 _Support this and all my katas via [Patreon](https://www.patreon.com/EmilyBache)_
 
 # Gilded Rose Refactoring Kata
