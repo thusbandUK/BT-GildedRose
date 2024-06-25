@@ -9,3 +9,6 @@ vendor
 venv
 **/DS_Store/*
 **/.DS_Store/*
+/GildedRose-Refactoring-Kata/**
+
+*/GildedRose-Refactoring-Kata/TypeScript
